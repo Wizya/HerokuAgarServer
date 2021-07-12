@@ -1,25 +1,34 @@
 {
-    "name": "HerokuAgarServ",
-    "version": "1.6.2",
-    "description": "Agario server for Heroku from Multiogar-Edited(https://github.com/Megabyte918/multiogar-edited)",
-    "author": "JE5143 and Megabyte918",
-    "homepage": "https://github.com/JE5143/agar",
-    "license": "Apache-2.0",
-    "main": "src/index.js",
-    "dependencies": {
-        "ws": "latest",
-        "figlet": "latest"
-    },
-    "devDependencies": {},
-     "scripts": {
-        "start": "cd src && node index.js",
-         "discord": "npm i discord.js && cd run && node console-discord.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/JE5143/agar"
-    },
-    "bugs": {
-        "url": "https://github.com/JE5143/agar/issues"
-    }
+  "name": "agar.io",
+  "description": "Agar.io clone.",
+  "main": "build/server/index.js",
+  "contributors": [
+    "Ben Budnevich <ben.bj32001@gmail.com>",
+    "Mark <mark@remarkablemark.org>"
+  ],
+  "scripts": {
+    "build": "run-s build:*",
+    "build:client": "tsc -p src/client",
+    "build:server": "tsc -p src/server",
+    "clean": "rm -rf build",
+    "dev": "run-p dev:*",
+    "dev:client": "yarn build:client --watch",
+    "dev:server": "yarn build:server --watch",
+    "dev:nodemon": "nodemon build/server",
+    "start": "node build/server"
+  },
+  "dependencies": {
+    "express": "latest",
+    "nodemon": "latest",
+    "npm-run-all": "^4.1.5",
+    "randomcolor": "latest",
+    "socket.io": "latest",
+    "typescript": "^3.6.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "husky": "^3.0.8"
+  },
+  "license": "MIT"
 }
